@@ -354,7 +354,7 @@ const McpSettings: React.FC<Props> = ({ server }) => {
                       onChange={(e) => {
                         onSelectRegistry(e.target.value)
                       }}>
-                      {t('settings.mcp.noRegistry')}
+                      {t('settings.mcp.registryDefault')}
                     </Radio>
                     {registry.map((reg) => (
                       <Radio
