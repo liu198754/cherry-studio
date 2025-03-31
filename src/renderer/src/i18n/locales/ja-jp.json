@@ -1038,7 +1038,10 @@
           "noToolsAvailable": "利用可能なツールはありません"
         },
         "deleteServer": "サーバーを削除",
-        "deleteServerConfirm": "このサーバーを削除してもよろしいですか？"
+        "deleteServerConfirm": "このサーバーを削除してもよろしいですか？",
+        "registry": "パッケージ管理レジストリ",
+        "registryTooltip": "デフォルトのレジストリでネットワークの問題が発生した場合、パッケージインストールに使用するレジストリを選択してください。",
+        "noRegistry": "なし"
       },
       "messages.divider": "メッセージ間に区切り線を表示",
       "messages.grid_columns": "メッセージグリッドの表示列数",
