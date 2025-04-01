@@ -84,9 +84,16 @@ class McpService {
           }
 
           if (server.registryUrl) {
+            let registryUrl = server.registryUrl
+
+            if (server.name === 'mcp-auto-install') {
+              const binPath = await getBinaryPath()
+              registryUrl = path.join(binPath, 'mcp-registry.json')
+            }
+
             server.env = {
               ...server.env,
-              NPM_CONFIG_REGISTRY: server.registryUrl
+              NPM_CONFIG_REGISTRY: registryUrl
             }
           }
         } else if (server.command === 'uvx' || server.command === 'uv') {
