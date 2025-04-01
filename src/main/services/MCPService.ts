@@ -84,15 +84,16 @@ class McpService {
             }
           }
           if (server.registryUrl) {
+            server.env = {
+              ...server.env,
+              NPM_CONFIG_REGISTRY: server.registryUrl
+            }
+
             // if the server name is mcp-auto-install, use the mcp-registry.json file in the bin directory
             if (server.name === 'mcp-auto-install') {
               const binPath = await getBinaryPath()
               makeSureDirExists(binPath)
-              server.env && (server.env.MCP_REGISTRY_PATH = path.join(binPath, 'mcp-registry.json'))
-            }
-            server.env = {
-              ...server.env,
-              NPM_CONFIG_REGISTRY: server.registryUrl
+              server.env.MCP_REGISTRY_PATH = path.join(binPath, 'mcp-registry.json')
             }
           }
         } else if (server.command === 'uvx' || server.command === 'uv') {
