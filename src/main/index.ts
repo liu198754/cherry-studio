@@ -1,4 +1,5 @@
 import { electronApp, optimizer } from '@electron-toolkit/utils'
+import { initPath } from '@main/utils/initPath'
 import { replaceDevtoolsFont } from '@main/utils/windowUtil'
 import { IpcChannel } from '@shared/IpcChannel'
 import { app, ipcMain } from 'electron'
@@ -19,6 +20,29 @@ if (!app.requestSingleInstanceLock()) {
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
+
+  // if (process.platform === 'win32') {
+  //   //console.log('Windows');
+  //   if(is.dev) {
+  //     const localPath = path.join(app.getAppPath(), 'CherryStudioDev');
+  //     const cmdRes = execSync('mklink /D %appdata%\\CherryStudioDev ' + localPath);
+  //     console.log("dev " + cmdRes.toString());
+  //   } else {
+  //     const localPath = path.join(app.getAppPath(), 'CherryStudio');
+  //     const cmdRes = execSync('mklink /D %appdata%\\CherryStudio ' + localPath);
+  //     console.log("release  " + cmdRes.toString());
+  //   }
+  // } else if (process.platform === 'darwin') {
+  //   //console.log('macOS');
+  // } else if (process.platform === 'linux') {
+  //   //console.log('Linux');
+  // }
+
+  // This method will be called when Electron has finished
+  // initialization and is ready to create browser windows.
+  // Some APIs can only be used after this event occurs.
+
+  initPath()
 
   app.whenReady().then(async () => {
     // Set app user model id for windows
